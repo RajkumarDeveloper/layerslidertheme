@@ -1,0 +1,1784 @@
+<!doctype html>
+<html lang="en" class="dev">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name = "viewport" content = "width = device-width">
+
+	<title>Developer documentation for LayerSlider WP</title>
+
+	<link rel="stylesheet" href="assets/css/doc.css?rev=6">
+	<link rel="stylesheet" href="assets/css/dashicons.css">
+	<link rel="stylesheet" href="assets/js/syntaxhighlighter/styles/shCoreKreatura.css">
+	<link rel="stylesheet" href="assets/js/syntaxhighlighter/styles/shThemeKreatura.css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400|Open+Sans" rel="stylesheet">
+	<!--[if lt IE 9]>
+		<script src="assets/js/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+
+	<nav id="mobile-menu">
+		<span class="dashicons dashicons-menu"></span>
+		<div id="mobile-select">
+			<div>
+				<span class="dashicons dashicons-editor-alignright"></span>
+				Table of Contents
+				<select></select>
+			</div>
+		</div>
+		<header>
+			<span>Developer Documentation</span>
+		</header>
+	</nav>
+
+	<aside>
+		<header>
+			<span>LayerSlider WP</span>
+			<span class="dev">for Developers</span>
+			<small>v6.9.2 - Sep 3, 2019</small>
+		</header>
+		<nav>
+			<ul id="sidebar">
+				<li data-hash="overview" class="active">
+					<span>Overview</span>
+					<small>About this documentation</small>
+				</li>
+				<li data-hash="licensing">
+					<span>Licensing conditions</span>
+					<small>Usage terms</small>
+				</li>
+				<li data-hash="bundling">
+					<span>Bundling in themes</span>
+					<small>Integration guide</small>
+				</li>
+				<li data-hash="constants">
+					<span>Constants &amp; variables</span>
+					<small>Working with paths, URLs, settings</small>
+				</li>
+				<li data-hash="sliders">
+					<span>Working with sliders</span>
+					<small>Add, remove and find sliders</small>
+				</li>
+				<li data-hash="sources">
+					<span>Working with sources</span>
+					<small>Bundled demo content, skins, etc</small>
+				</li>
+				<li data-hash="hooks">
+					<span>Action &amp; Filter hooks</span>
+					<small>Custom WordPress hooks</small>
+				</li>
+				<li data-hash="release-log">
+					<span>Release log</span>
+					<small>See What's New</small>
+				</li>
+				<li class="back">
+					<a href="documentation.html">
+						<i class="dashicons dashicons-arrow-left-alt"></i>
+						Back to the End-User Documentation
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div id="content">
+		<div>
+
+			<!-- Overview -->
+			<section data-target="overview" class="active">
+
+				<nav>
+					<ul>
+						<li>
+							<a href="#overview">Overview</a>
+						</li>
+					</ul>
+				</nav>
+
+				<h1 data-target="overview">It's for developers</h1>
+				<p>This documentation is made explicitly for developers to make their lives easier by describing how the plugin internals are working. If you are not a programmer, please read the <a href="documentation.html">Documentation for End-Users</a>, you don't need to follow any of the instructions here. </p>
+
+				<h3>Overview</h3>
+				<p>This documentation covers everything you need to know about licensing, incorporating LayerSlider WP into a WordPress theme, internal plugin APIs, filter and action hooks, and every other asset you might need to interface with the plugin as a developer.</p>
+			</section>
+
+
+			<!-- Licensing -->
+			<section data-target="licensing">
+
+				<nav>
+					<ul>
+						<li><a href="#licensing">Licensing terms</a></li>
+						<li><a href="#usage-terms">Envato's terms</a></li>
+						<li><a href="#usage-terms-kreatura">Kreatura's terms</a></li>
+					</ul>
+				</nav>
+
+				<h1 data-target="licensing">Licensing terms</h1>
+
+				<h2></h2>
+				<ol class="nomargin">
+					<li>Make sure that you have read, understood and follow the terms described below.</li>
+					<li>You need to purchase an Extended License for each theme that includes LayerSlider.</li>
+					<li>Register your theme to acquire an In-Stock usage permission: <a href="https://kreaturamedia.com/in-stock/" target="_blank">kreaturamedia.com/in-stock/</a></li>
+				</ol>
+
+				<h2 data-target="usage-terms">Envato's terms</h2>
+				<p>Envato has many different assets dealing with licensing and usage terms. You can find these in their entirety on the following URLs: <a href="https://themeforest.net/licenses/terms/extended" target="_blank">Extended License Terms</a> – <a href="http://codecanyon.net/licenses/faq" target="_blank">Licensing FAQ</a> – <a href="https://help.market.envato.com/hc/en-us/articles/202822450" target="_blank">Theme Submission Requirements</a> – <a href="https://help.market.envato.com/hc/en-us/articles/203039224" target="_blank">Item Promotion Guidelines</a> – <a href="https://help.market.envato.com/hc/en-us/articles/213762463" target="_blank">Bundled Plugins</a>.
+				</p>
+
+				<p>These terms are not unique to LayerSlider, Envato enforces them for any other bundled plugins as well. The following is a brief summary of the most relevant rules. Make sure to also read them in their full length.</p>
+				<ul>
+					<li>
+						<strong>Purchase an Extended License per themes and acquire an In-Stock usage permission.</strong>
+						<p>You need to purchase an Extended License for each of your theme that includes LayerSlider. For the In-Stock usage permission, see the Kreatura's terms section below.</p>
+					</li>
+					<li>
+						<strong>It's only for WordPress themes sold on ThemeForest</strong>
+						<p>Envato does not allow bundling CodeCanyon items in themes that are sold outside of the marketplace.</p>
+					</li>
+					<li>
+						<strong>You cannot offer the plugin as a stand-alone item</strong>
+						<p>You cannot share the stand-alone Item with your customers (e.g. include it in the download package, make it available on your website, etc). You have to use the TGM Plugin Activation class. See the <a href="#bundling">Bundling in themes</a> section for more information.</p>
+					</li>
+					<li>
+						<strong>Use the preferred settings for TGM plugin installation</strong>
+						<p>Bundled plugins can only be used with your theme. In accordance with the previous cluase, you need to configure TGMPA to automatically activate &amp; deactivate LayerSlider whenever users are switching themes.</p>
+					</li>
+					<li>
+						<strong>You cannot provide an Item Purchase Code for your customers</strong>
+						<p>Since Envato doesn't have a "multi-use" or transferable license, your customers are not entitled to receive an Item Purchase Code with your theme and use the plugin separately from your work.</p>
+					</li>
+					<li>
+						<strong>Updating the plugin is your responsibility</strong>
+						<p>Since your customers can't receive updates from us, you need to handle this on your own. The TGM Plugin Activation class makes it simple, and we are providing the necessary tools to make it quick as well.</p>
+					</li>
+					<li>
+						<strong>You need to handle LayerSlider related support requests after your customers</strong>
+						<p>We would like to hear your thoughts and suggestions to fix issues and improve our items based on your feedback, but we cannot provide free support for your customers, this is your responsibility.</p>
+					</li>
+					<li>
+						<strong>Explain the difference between bundled and standalone versions</strong>
+						<p>You should include an easy-to-find disclaimer and a reference to the following help article explaining customers the difference between bundled and standalone plugins: <a href="https://help.market.envato.com/hc/en-us/articles/213762463" target="_blank">https://help.market.envato.com/hc/en-us/articles/213762463</a></p>
+					</li>
+					<li>
+						<strong>Avoid misleading statements</strong>
+						<ul class="nomargin">
+							<li>Stating that customers will receive a LayerSlider license;</li>
+							<li>Promising official support from Kreatura</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h2 data-target="usage-terms-kreatura">Kreatura's terms</h2>
+				<p>Below you can see our own terms that you must follow if you have decided to integrate LayerSlider into your theme.</p>
+
+				<ul>
+					<li>
+						<strong>Submit your theme details for In-Stock usage</strong>
+						<p>Complete theme registration on the following URL: <a href="https://kreaturamedia.com/in-stock/" target="_blank">kreaturamedia.com/in-stock/</a></p>
+					</li>
+					<li>
+						<strong>Add an attribution link to LayerSlider's homepage</strong>
+						<p>Please make sure to mention LayerSlider in your Envato Item page and on your demo site and add an attribution link to LayerSlider's homepage: <a href="https://layerslider.kreaturamedia.com/">layerslider.kreaturamedia.com</a></p>
+					</li>
+
+					<li>
+						<strong>Do not rename, hide or otherwise manipulate Kreatura and LayerSlider branding</strong>
+					</li>
+					<li>
+						<strong>Do not prevent customers purchasing/using the standalone version</strong>
+						<p>Some customers will likely decide to purchase LayerSlider separately to obtain their own individual license. Hiding the Product Activation box and other obstacles just raises frustration and prevents customers accessing certain features.</p>
+					</li>
+					<li>
+						<strong>You cannot modify the plugin to use it for unintended purposes</strong>
+						<p>You are not allowed to alter the item in order to unlock premium features or get around safety mechanisms. Modifying the plugin to use it for unintended purposes is strictly prohibited. This includes, but not limited to, faking plugin activation, sharing the template store contents, etc.</p>
+					</li>
+				</ul>
+
+
+				<div class="km-notification info cf">
+					<span class="dashicons dashicons-info"></span>
+					<strong>Changes of these terms and conditions</strong><br>
+					We reserve the right to change these terms and conditions at any time and without notice. Future changes will also be applied to you in order to have a valid In-Stock usage permission.
+				</div>
+
+				<div class="km-notification warning cf">
+					<span class="dashicons dashicons-warning"></span>
+					<strong>A fair warning</strong><br>
+					We're always open to settle any situation peacefully and give you opportunity and enough time to perform any changes that may be necessary. However, we reserve the right to revoke your In-Stock usage permission in severe cases of breaching any of the above described terms and conditions if you're uncooperative and we cannot reach an agreement.
+				</div>
+
+			</section>
+
+			<!-- Bundling in themes -->
+			<section data-target="bundling">
+
+				<nav>
+					<ul>
+						<li><a href="#bundling-introduction">Introduction</a></li>
+						<li><a href="#bundling-tgmpa">Setup</a></li>
+						<li><a href="#bundlind-tgmpa-example">Example</a></li>
+						<li><a href="#bundling-compatibility">Maximizing compatibility</li>
+						<li><a href="#bundling-auto-update">Disabling activation features</a></li>
+						<li><a href="#bundling-promotions">Disabling promotions</a></li>
+					</ul>
+				</nav>
+
+				<h1>Bundling in themes</h1>
+				<h2 data-target="bundling-introduction">Introduction</h2>
+				<p>Before you begin, make sure that you have read the <a href="#licensing">licensing terms</a>.</p>
+				<p>As of 9th September 2013, Envato requires authors to load bundled WordPress plugins in themes with the TGM Plugin Activation class. This helps authors to include 3rd party components easily and handle their dependencies and updates automatically.</p>
+
+				<h2 data-target="bundling-tgmpa">Setting up TGM Plugin Activation class</h2>
+				<ul class="nomargin">
+					<li>Download the latest version of TGM Plugin Activation class from <a href="http://tgmpluginactivation.com/" target="_blank">their website</a>.</li>
+					<li>Select the appropriate options in their <a href="http://tgmpluginactivation.com/download/" target="_blank">download generator</a> and make sure to choose the "ThemeForest" option in the distribution section.</li>
+					<li>After the download, you should visit their <a href="http://tgmpluginactivation.com/installation/" target="_blank">Installation</a> and <a href="http://tgmpluginactivation.com/configuration/" target="_blank">Configuration</a> pages for more information about using TGMPA.</li>
+					<li>There is also a working example in the downloaded package.</li>
+					<li>Check their <a href="http://tgmpluginactivation.com/faq/" target="_blank">FAQ</a> if you have further questions.</li>
+				</ul>
+
+				<h2 data-target="bundlind-tgmpa-example">Example TGM plugin parameters</h2>
+				<p>Below you can see an example configuration for LayerSlider. You can copy and paste this code, however, make sure to change the <code>source</code> and <code>version</code> properties to the correct values.</p>
+				<div class="km-notification warning cf">
+					<span class="dashicons dashicons-warning"></span>
+					Remember, you are required to set the <code>force_deactivation</code> option to <code>true</code> in accordance with Envato's licensing terms.
+				</div>
+				<pre name="code" class="brush: php; highlight:9">
+// LayerSlider config
+array(
+	'name' 					=> 'LayerSlider WP',
+	'slug' 					=> 'layerslider',
+	'source' 				=> get_stylesheet_directory() . '/plugins/layerslider.zip',
+	'required' 				=> false,
+	'version' 				=> '6.0.0',
+	'force_activation' 		=> true,
+	'force_deactivation' 	=> true,
+	'external_url' 			=> 'https://layerslider.kreaturamedia.com/'
+)
+</pre>
+
+			<h2 data-target="bundling-compatibility">Maximizing compatibility</h2>
+			<p>There are a few settings under <a href="documentation.html#advanced-options" target="_blank">LayerSlider -> Options -> Advanced</a> that you might want to change in order to offer a better experience for your customers with your theme. For example, the "Include scripts in the footer" option should be enabled on all sites, but we're still keeping it disabled by default to maximize compatibility with outdated themes that don't support wp_footer().</p>
+			<p>Another use case is when your theme has a built-in feature to use CDNs, compress or combine JavaScript files, etc. In those cases it might be needed to enforce certain settings to avoid printing scripts mid-page. To keep file sizes minimal, LayerSlider has some additional modules as external files, which are loaded conditionally based on the slider settings. Depending on how you capture and update scripts (if any), you might also want to enable the "Always load all JavaScript files" option to avoid issues with caches and dynamically loaded files.</p>
+			<p>The below example shows how you can override and enforce certain settings, which are guaranteed to work with your theme. For the full list of potential options, refer to the table below. Make sure to replace <code>Theme Name</code> with the actual name of your theme.</p>
+
+			<pre name="code" class="brush: php;">
+
+/*
+ * LS_Config::forceSettings() was added in LayerSlider 6.7.5
+ * Make sure to include the method_exists() condition,
+ * otherwise it will cause a fatal error on older versions.
+ */
+
+if( method_exists( 'LS_Config', 'forceSettings' ) ) {
+
+	LS_Config::forceSettings( 'Theme Name', array(
+
+		'include_at_footer' 			=> true,
+		'conditional_script_loading' 	=> true
+	));
+}
+</pre>
+
+			<br>
+			<p class="nomargin">This is how the above code would look like for your users:</p>
+
+			<figure>
+				<div class="half">
+					<div class="img-holder">
+						<img src="assets/img/illustration-enforced-settings@2x.png" width="1100" height="570" alt="Enforced Settings">
+					</div>
+				</div><div class="half">
+					<div class="img-holder">
+						<img src="assets/img/illustration-enforced-settings-hover@2x.png" width="1100" height="570" alt="Enforced Settings" >
+					</div>
+				</div>
+				<figcaption>Illustration of enforced settings</figcaption>
+			</figure>
+
+			<div class="km-notification info cf">
+				<span class="dashicons dashicons-info"></span>
+				It's important to note that this method is not for changing the defaults. These settings will be enforced in all cases, thus users won't be able to change them. In order to provide some level of freedom, you should only enforce the settings you absolutely need to.
+			</div>
+
+			<div class="table">
+				<table>
+					<thead>
+						<tr>
+							<th>Option Key</th>
+							<th>Description</th>
+							<th>Type</th>
+							<th>Default</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>use_cache</td>
+							<td>LayerSlider's own markup caching to improve performance. Should be disabled when using dynamic content or multilingual sliders.</td>
+							<td>Boolean</td>
+							<td>true</td>
+						</tr>
+						<tr>
+							<td>include_at_footer</td>
+							<td>Include JS files at the footer. One of the most common options that should be enforced if your theme supports wp_footer().</td>
+							<td>Boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>conditional_script_loading</td>
+							<td>Load plugin files and additional components dynamically to spare resources.</td>
+							<td>Boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>concatenate_output</td>
+							<td>Eliminates line breaks and unnecessary white spaces from the output, which improves performances and could solve certain issues like wpautop(). Might cause issues on certain servers.</td>
+							<td>Boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>defer_scripts</td>
+							<td>Eliminates render-blocking JavaScript files, but might also delay a bit displaying sliders above the fold.</td>
+							<td>Boolean</td>
+							<td>false</td>
+						</tr>
+
+						<tr>
+							<td>rocketscript_ignore</td>
+							<td>Excludes LayerSlider files from CloudFront’s Rocket Loader, which can help overcoming potential issues with async loading.</td>
+							<td>Boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>load_all_js_files</td>
+							<td>Always load all JS files, even if Conditional script loading and similar options are enabled. This could help overcoming issues with CDNs and JavaScript minify/combine features.</td>
+							<td>Boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>gsap_sandboxing</td>
+							<td>Attempts to create an isolated copy of GreenSock and run it independently from other versions that might be used by 3rd parties.</td>
+							<td>Boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>use_custom_jquery</td>
+							<td>Attempts to deregister jQuery and loads an older but more supported version from Google's CDN. Do not enforce this settings. It's never a good idea. It's there for edge cases only.</td>
+							<td>Boolean</td>
+							<td>false</td>
+						</tr>
+						<tr>
+							<td>scripts_priority</td>
+							<td>add_action()'s priority parameter. Used to specify the order in which scripts are loaded.</td>
+							<td>Integer</td>
+							<td>3</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+			<h2 data-target="bundling-auto-update">Disabling activation features</h2>
+			<p>Since product activation requires a valid Item Purchase Code that the majority of your customers will not have, you might want to disable activation-related banners and messages. To do that, please paste the below code into your theme's functions.php file to set up LayerSlider as a theme bundle. This will disable certain features and banners, so your buyers will not be confused about these messages.</p>
+
+			<div class="km-notification info cf">
+				<span class="dashicons dashicons-info"></span>
+				Newer versions of LayerSlider warn users about feature availability instead of completely hiding the Product Activation box. This helps users avoiding difficulties if they have a separate license for LayerSlider and would like to use this feature.
+			</div>
+			<pre name="code" class="brush: php;">&lt;?php
+
+if( function_exists( 'layerslider_set_as_theme' ) ) {
+	layerslider_set_as_theme();
+}
+?&gt;</pre>
+
+			<h2 data-target="bundling-promotions">Disabling promotions</h2>
+			<p>LayerSlider offers customization services from a 3rd party company: WPKraken. While this is not at a prominent place at all and shouldn't bother users, we understand if you would like to hide it. To do that, please paste the below example code into your theme's functions.php file.</p>
+			<pre name="code" class="brush: php;">&lt;?php
+
+if( function_exists( 'layerslider_hide_promotions' ) ) {
+	layerslider_hide_promotions();
+}
+?&gt;</pre>
+
+			</section>
+
+
+			<!-- Constants & variables -->
+			<section data-target="constants">
+
+				<nav>
+					<ul>
+						<li>
+							<a href="#plugin-constants">Plugin constants</a>
+						</li>
+						<li>
+							<a href="#plugin-variables">Global variables</a>
+						</li>
+					</ul>
+				</nav>
+
+				<h1>Constants &amp; variables</h1>
+				<p>This section lists and describes the constants and global variables of LayerSlider, which can be useful for writing custom code, improving theme integration and making custom solutions built on top of LayerSlider.</p>
+
+				<h2 data-target="plugin-constants">List of plugin constants</h2>
+				<div class="table">
+					<table >
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Purpose</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>LS_ROOT_FILE</td>
+								<td>Filesystem path for the plugin's main file, which can be used to identify its slug and base name. Ex.: /path/to/your/site/wp-content/LayerSlider/layerslider.php</td>
+							</tr>
+							<tr>
+								<td>LS_ROOT_PATH</td>
+								<td>Filesystem path for the plugin's folder. Useful when you want to include specific files located in the LayerSlider folder. Does not include a trailing slash. Ex.: /path/to/your/site/wp-content/LayerSlider</td>
+							</tr>
+							<tr>
+								<td>LS_ROOT_URL</td>
+								<td>Web URL pointing to the LayerSlider plugin directory. Does not include a trailing slash. Ex.: http://yourdomain.com/wp-content/LayerSlider</td>
+							</tr>
+							<tr>
+								<td>LS_PLUGIN_VERSION</td>
+								<td>The installed version of LayerSlider. Ex.: 5.4.0</td>
+							</tr>
+							<tr>
+								<td>LS_PLUGIN_SLUG</td>
+								<td>The plugin's slug. Essentially it's the name of the plugin folder. Ex.: LayerSlider</td>
+							</tr>
+							<tr>
+								<td>LS_PLUGIN_BASE</td>
+								<td>The plugin base name. Usually used by internal WP functions. Ex.: LayerSlider/layerslider.php</td>
+							</tr>
+							<tr>
+								<td>LS_MARKETPLACE_ID</td>
+								<td>LayerSlider's Envato Market item ID.</td>
+							</tr>
+							<tr>
+								<td>LS_DB_TABLE</td>
+								<td>The LayerSlider database table name that stores your sliders. Always use in conjunction with $wpdb->prefix to support multisite installations. Consider using <a href="#sliders">LS_Sliders</a> class instead of custom queries.</td>
+							</tr>
+							<tr>
+								<td>LS_TEXTDOMAIN</td>
+								<td>The textdomain used by LayerSlider for gettext calls.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h2 data-target="plugin-variables">List of global variables</h2>
+				<div class="table">
+					<table >
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Purpose</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>$GLOBALS['lsPluginPath']</td>
+								<td><span style="color: red;">[DROPPED]</span> This variable is no longer available. Use the LS_ROOT_URL constant instead. A <a href="#filter-hooks-reference">filter hook</a> called <code>layerslider_root_url</code> is also available.</td>
+							</tr>
+							<tr>
+								<td>$GLOBALS['lsPluginVersion']</td>
+								<td><span style="color: red;">[DROPPED]</span> This variable is no longer available. Use the LS_PLUGIN_VERSION constant instead.</td>
+							</tr>
+							<tr>
+								<td>$GLOBALS['lsAutoUpdateBox']</td>
+								<td><span style="color:red;">[DROPPED]</span> Used to hide the Product Activation box. Use <code>layerslider_set_as_theme()</code> instead. See section <a href="#bundling">Bundling in themes</a> for more information and examples.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</section>
+
+
+			<!-- Working with sliders -->
+			<section data-target="sliders">
+
+				<nav>
+					<ul>
+						<li>
+							<a href="#sliders-intro">Working with sliders</a>
+							<ul>
+								<li><a href="#sliders-methods">Methods</a></li>
+								<li><a href="#sliders-filters">Filters</a></li>
+								<li><a href="#sliders-examples">Examples</a></li>
+								<li><a href="#sliders-return">Return data</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#slider-groups-intro">Slider Groups</a>
+							<ul>
+								<li><a href="#slider-groups-intro">About Slider Groups</a></li>
+								<li><a href="#slider-groups-methods">Methods</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#slider-library-api">LS_SliderLibrary API</a>
+							<ul>
+								<li><a href="#slider-library-concept">Basic usage</a></li>
+								<li><a href="#slider-library-customization">Customization</a></li>
+								<li><a href="#slider-library-checklist">Dos and Don'ts</a></li>
+								<li><a href="#slider-library-examples">Examples</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+
+				<h1 data-target="sliders-intro">Working with sliders</h1>
+				<p>We have a new static class that you can use comfortably to work with sliders. Our older functions for this purpose are still available, but we might remove them in future versions, and we highly recommend you to use the new solution.</p>
+
+				<div class="km-notification warning cf">
+					<span class="dashicons dashicons-warning"></span>
+					Escaping and sanitizing user input is your responsibility. Whenever it's possible, we're using $wpdb::prepare() and filter the individual parameters and array items. However, it's not always possible with every data type, thus you're expected to properly handle user input prior calling any class method.
+				</div>
+
+				<h2 data-target="sliders-methods">Class methods</h2>
+				<ul class="sep">
+					<li>
+						<i>(array)</i> <code>LS_Sliders::find( [mixed $filters] )</code>
+						<p>Finds sliders with the provided filters and settings. See also the corresponding section below on this page for more information and examples. Accepts:</p>
+						<ul class="nomargin">
+							<li><i>(int)</i> ID of a slider,</li>
+							<li><i>(string)</i> Slug of a slider,</li>
+							<li><i>(array)</i> Array of slider IDs as integers</li>
+							<li><i>(array)</i> The filter object, see below on this page</li>
+						</ul>
+					</li>
+					<li>
+						<i>(int)</i> <code>LS_Sliders::count( void )</code>
+						<p>Returns the total number of found sliders from the latest query with ignoring pagination settings.</p>
+					</li>
+					<li>
+						<i>(int)</i> <code>LS_Sliders::add( [string $title = 'Unnamed' [, array $data = array() [, string $slug = '' ]]] )</code>
+						<p>Adds a new slider with the provided settings and slug. All parameters are optional. The plugin will use the default slider settings if you provide partial/empty slider data.</p>
+					</li>
+					<li>
+						<i>(bool)</i> <code>LS_Sliders::remove( int $ID )</code>
+						<p>Removes a slider by its database ID. Returns a boolean value to indicate success or failure. This method preserves the actual data in DB to restore it later.</p>
+					</li>
+					<li>
+						<i>(bool)</i> <code>LS_Sliders::delete( int $ID )</code>
+						<p>Permanently deletes a slider by its database ID. Returns a boolean value to indicate success or failure.</p>
+					</li>
+					<li>
+						<i>(bool)</i> <code>LS_Sliders::restore( int $ID )</code>
+						<p>Restores a previously removed slider by its database ID. Returns a boolean value to indicate success or failure.</p>
+					</li>
+				</ul>
+
+				<h2 data-target="sliders-filters">LS_Sliders filter object</h2>
+				<div class="table">
+					<table >
+						<thead>
+							<tr>
+								<th>Key</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>columns</td>
+								<td>string</td>
+								<td>'*'</td>
+								<td>Database columns expected to be returned.</td>
+							</tr>
+							<tr>
+								<td>where</td>
+								<td>string</td>
+								<td>'' (empty string)</td>
+								<td>Standard MySQL WHERE statement</td>
+							</tr>
+							<tr>
+								<td>exclude</td>
+								<td>array</td>
+								<td>array('hidden', 'removed')</td>
+								<td>Rows excepted to be excluded from search results.</td>
+							</tr>
+							<tr>
+								<td>orderby</td>
+								<td>string</td>
+								<td>'date_c'</td>
+								<td>The order result by a column.</td>
+							</tr>
+							<tr>
+								<td>order</td>
+								<td>string</td>
+								<td>'DESC'</td>
+								<td>The order of returned data.</td>
+							</tr>
+							<tr>
+								<td>limit</td>
+								<td>int</td>
+								<td>10</td>
+								<td>Limit the number of returned sliders.</td>
+							</tr>
+							<tr>
+								<td>page</td>
+								<td>int</td>
+								<td>1</td>
+								<td>Get results for a specific page when using pagination.</td>
+							</tr>
+							<tr>
+								<td>groups</td>
+								<td>bool</td>
+								<td>false</td>
+								<td>Disables slider grouping and hides group entries by default. Sliders that are in a group are still listed in the results. When set to <code>true</code>, group records will be present and an <code>items</code>array will contain all sliders belonging to that group.</td>
+							</tr>
+							<tr>
+								<td>data</td>
+								<td>bool</td>
+								<td>true</td>
+								<td>Returns the data object of sliders.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+				<h2 data-target="sliders-examples">Examples</h2>
+				<p>Find a slider by its database ID.</p>
+				<pre name="code" class="brush: php;">$sliders = LS_Sliders::find(2);</pre>
+
+				<p>Find a slider by its slug.</p>
+				<pre name="code" class="brush: php;">$sliders = LS_Sliders::find('fullwidthdemo');</pre>
+
+				<p>Find multiple sliders by their IDs.</p>
+				<pre name="code" class="brush: php;">$sliders = LS_Sliders::find(array(12, 15, 23));</pre>
+
+				<p>Find sliders with custom filters and return results with modifiers.</p>
+				<pre name="code" class="brush: php;">$sliders = LS_Sliders::find(array(
+	'orderby' => 'date_m',
+	'limit' => 30,
+	'data' => false
+));</pre>
+
+				<h2 data-target="sliders-return">Returning slider objects</h2>
+				<div class="table">
+					<table >
+						<thead>
+							<tr>
+								<th>Key</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>id</td>
+								<td>int</td>
+								<td>The database ID of sliders.</td>
+							</tr>
+							<tr>
+								<td>group_id</td>
+								<td>int</td>
+								<td>The database ID of the group that a slider belongs to (if any)</td>
+							</tr>
+							<tr>
+								<td>author</td>
+								<td>int</td>
+								<td>The WP user ID of the slider author.</td>
+							</tr>
+							<tr>
+								<td>name</td>
+								<td>string</td>
+								<td>The user-defined name of sliders (if any).</td>
+							</tr>
+							<tr>
+								<td>slug</td>
+								<td>string</td>
+								<td>The slider's slug (if any).</td>
+							</tr>
+							<tr>
+								<td>data</td>
+								<td>mixed</td>
+								<td>The slider's data object containing all of its settings. It may be returned as a string or completely excluded from results depending on your filters.</td>
+							</tr>
+							<tr>
+								<td>date_c</td>
+								<td>int</td>
+								<td>UNIX timestamp for the date of creation.</td>
+							</tr>
+							<tr>
+								<td>date_m</td>
+								<td>int</td>
+								<td>UNIX timestamp for the date of last modification.</td>
+							</tr>
+							<tr>
+								<td>schedule_start</td>
+								<td>int</td>
+								<td>UNIX timestamp for the schedule start date.</td>
+							</tr>
+							<tr>
+								<td>schedule_end</td>
+								<td>int</td>
+								<td>UNIX timestamp for the schedule end date.</td>
+							</tr>
+							<tr>
+								<td>flag_popup</td>
+								<td>int</td>
+								<td>Indicates whether the slider is a Popup slider.</td>
+							</tr>
+							<tr>
+								<td>flag_group</td>
+								<td>int</td>
+								<td>Indicates whether the record is a special group entry that you might want to filter out.</td>
+							</tr>
+							<tr>
+								<td>flag_hidden</td>
+								<td>int</td>
+								<td>Indicates whether the slider is hidden or published.</td>
+							</tr>
+							<tr>
+								<td>flag_deleted</td>
+								<td>int</td>
+								<td>Indicates whether the slider is removed or publicly visible.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h1 data-target="slider-groups-intro">About Slider Groups</h1>
+				<p>The Slider Groups feature is introduced in v6.9.0. It allows users to have a sort of folders for their sliders. These groups are special entries in the same <code>wp_layerslider</code> table, thus you might want to filter them out or handle them differently than regular sliders.</p>
+
+				<p>The LS_Sliders class described above already supports handling groups. There is nothing to do on your part if you're using this class for listing sliders. The default behavior is to disable grouping and exclude group entries from the list. The result is the same as with any previous version of LayerSlider.</p>
+
+				<p>However, if you're using custom queries, you need to make sure to exclude group entries by yourself. Since these entries are present in the same table but have slightly different properties, it can cause compatibility issues if you aren't handling them the way it's supposed to. At the very least, you don't want to list these hidden entries for your customers portraying them as regular sliders.</p>
+
+				<p>The LS_Sliders class has been updated to cover all these new features and you can also build custom solutions on top of it. Below is the list of API methods that are exposed to you to handle groups yourself. Don't forget, the Working with sliders section above has also been updated and there are additional filters and data points you can rely on.</p>
+
+				<p>We also have a new <a href="#slider-library-api">LS_SliderLibrary</a> JavaScript API. It's a shockingly easy way to implement slider pickers with minimal code and it supports all the new features.</p>
+
+				<div class="km-notification info cf">
+						<span class="dashicons dashicons-info"></span>
+						Using either <a href="#sliders-intro">LS_Sliders</a> or <a href="#slider-library-api">LS_SliderLibrary</a> is very much encouraged, as they're maintained and will always be compatible with all potential future changes. They cover basically all use cases and offer a very easy way to implement custom solutions with just a few lines of code.
+				</div>
+
+				<h2 data-target="slider-groups-methods">Methods</h2>
+				<ul>
+					<li>
+						<i>(int)</i> <code>LS_Sliders::addGroup( string $name = 'Unnamed' )</code>
+						<p>Creates a group with the specified name. Returns the database ID of the newly created group entry.</p>
+					</li>
+
+					<li>
+						<i>(bool)</i> <code>LS_Sliders::removeGroup( int $groupId )</code>
+						<p>Moves all sliders out of the group, then deletes it completely. Sliders in the group remain untouched.</p>
+					</li>
+
+					<li>
+						<i>(bool)</i> <code>LS_Sliders::renameGroup( int $groupId, string $name = 'Unnamed' )</code>
+						<p>Renames the specified group by its groupId with the name you specify.</p>
+					</li>
+
+					<li>
+						<i>(bool)</i> <code>LS_Sliders::addSliderToGroup( int $sliderId, int $groupId )</code>
+						<p>Adds the specified slider to the specified group.</p>
+					</li>
+
+					<li>
+						<i>(bool)</i> <code>LS_Sliders::removeSliderFromGroup( int $sliderId, int $groupId )</code>
+						<p>Removes the specified slider from the specified group.</p>
+					</li>
+
+				</ul>
+
+
+
+				<h1 data-target="slider-library-api">LS_SliderLibrary API</h1>
+				<h2 data-target="slider-library-concept">Basic usage</h2>
+				<p>
+					The key concept behind the LS_SliderLibrary API is to offer a pre-made and feature-rich slider picker/selector, so  developers can focus on the things that really matter to them.
+				</p>
+				<p>
+					When called, the LS_SliderLibrary API displays the same modal window that the LayerSlider Gutenberg block uses with features like Slider Groups and others already implemented.
+				</p>
+				<p>
+					First, you need to enqueue the Slider Library assets by calling the <code>ls_enqueue_slider_library()</code> PHP function. This will load any dependencies needed to use the Slider Library.
+				</p>
+				<pre name="code" class="brush: php;">
+&lt;?php ls_enqueue_slider_library(); ?&gt;
+</pre>
+				<p>Then, you can access the Slider Library via JavaScript with the following code:</p>
+				<pre name="code" class="brush: js;">
+LS_SliderLibrary.open({
+
+	onChange: function( sliderData ) {
+		// Do stuff here with sliderData
+	}
+});
+</pre>
+				<p>The <code>onChange</code> callback will be triggered whenever a slider has been selected by the user. The <code>sliderData</code> parameter contains the id, name, preview image, slide count and other basic information about the selected slider. If you need more information about the selected slider, you can always use the LS_Sliders PHP class to find the slider by its ID.</p>
+				<p>The Slider Library will automatically close itself after selecting a slider, but you can also call <code>LS_SliderLibrary.close()</code> if needed.</p>
+
+
+				<h2 data-target="slider-library-customization">Customization</h2>
+				<p>
+					The modal window displaying the Slider Library uses the Kreatura Modal Window (kmw.js) script. You can pass custom properties to this script via the <code>modalSettings</code> and <code>groupModalSettings</code> properties, so you can change its title, appearance, animation settings, behavior, etc.
+				</p>
+				<p>
+					<code>modalSettings</code> and <code>groupModalSettings</code> both share the same available settings. The distinction is that when you open a Slider Group, it will create a separate sub-modal window and you can customize that separately as well.
+				</p>
+
+				<p>
+					This modal script is custom-made for internal use, thus the public documentation on how to use it is limited. However, you can always use your browser's JS console to list the available options. Just look for the <code>kmw.modal.defaults</code> and <code>kmw.overlay.defaults</code> global variables.
+				</p>
+
+				<p>
+					The <code>LS_SliderLibrary.defaults</code> global variable contains the default configuration for these modal windows.
+				</p>
+
+
+				<div class="table">
+					<table>
+						<thead>
+							<tr>
+								<th>Common properties</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>into</td>
+								<td>String</td>
+								<td>'body'</td>
+								<td>The CSS/jQuery selector indicating where the modal window should be inserted.</td>
+							</tr>
+
+							<tr>
+								<td>title</td>
+								<td>String</td>
+								<td>'Choose LayerSlider'</td>
+								<td>The title of the modal window. It's already localized to many languages, but you can override it if needed.</td>
+							</tr>
+							<tr>
+								<td>content</td>
+								<td>String | Element</td>
+								<td>'Loading sliders ...'</td>
+								<td>The default content of the modal window. Used to display a loading message until the AJAX request completes and renders the actual slider list. Also localized.</td>
+							</tr>
+
+							<tr>
+								<td>clip</td>
+								<td>Boolean</td>
+								<td>true</td>
+								<td>Whether to clip the <code>body</code> or not to prevent scrolling.</td>
+							</tr>
+							<tr>
+								<td>closeButton</td>
+								<td>Boolean</td>
+								<td>true</td>
+								<td>Whether to show the modal close button.</td>
+							</tr>
+							<tr>
+								<td>closeOnEscape</td>
+								<td>Boolean</td>
+								<td>true</td>
+								<td>Enables or disables the ESC keyboard shortcut to close the modal.</td>
+							</tr>
+
+							<tr>
+								<td>overlay</td>
+								<td>Boolean</td>
+								<td>true</td>
+								<td>Whether to use an overlay or not.</td>
+							</tr>
+
+							<tr>
+								<td>overlaySettings</td>
+								<td>Object</td>
+								<td>{}</td>
+								<td>Overlay settings. Shares common property names with the modal settings. These include callback events, animation settings, etc. Check <code>kmw.overlay.defaults</code> for the full list.</td>
+							</tr>
+						</tbody>
+
+						<thead>
+							<tr>
+								<th>Layout properties</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>width</td>
+								<td>Number | String</td>
+								<td>'100%'</td>
+								<td>The width of the modal window, including paddings. <code>minWidth</code> and <code>maxWidth</code> can still pose constraints and you should change those instead of this setting to preserve responsiveness.</td>
+							</tr>
+							<tr>
+								<td>height</td>
+								<td>Number | String</td>
+								<td>'100%'</td>
+								<td>The height of the modal window, including paddings. <code>minHeight</code> and <code>maxHeight</code> can still pose constraints and you should change those instead of this setting to preserve responsiveness.</td>
+							</tr>
+
+							<tr>
+								<td>minWidth</td>
+								<td>Number | String</td>
+								<td>800</td>
+								<td>The minimum width, including paddings, while the modal can downscale and be responsive.</td>
+							</tr>
+							<tr>
+								<td>minHeight</td>
+								<td>Number | String</td>
+								<td>800</td>
+								<td>The minimum height, including paddings, while the modal can downscale and be responsive.</td>
+							</tr>
+
+							<tr>
+								<td>maxWidth</td>
+								<td>Number | String</td>
+								<td>800</td>
+								<td>The maximum width, including paddings, while the modal can upscale and be responsive.</td>
+							</tr>
+							<tr>
+								<td>maxHeight</td>
+								<td>Number | String</td>
+								<td>800</td>
+								<td>The maximum height, including paddings, while the modal can downscale and be responsive.</td>
+							</tr>
+
+							<tr>
+								<td>spacing</td>
+								<td>Number | String</td>
+								<td>40</td>
+								<td>The space around the modal window from the browser edges.</td>
+							</tr>
+
+							<tr>
+								<td>padding</td>
+								<td>Number | String</td>
+								<td>40</td>
+								<td>The padding inside the modal window.</td>
+							</tr>
+						</tbody>
+
+						<thead>
+							<tr>
+								<th>Appearance properties</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+
+
+							<tr>
+								<td>theme</td>
+								<td>String</td>
+								<td>'light'</td>
+								<td>The theme and color scheme of the modal window. Can be 'dark'.</td>
+							</tr>
+
+
+							<tr>
+								<td>modalClasses</td>
+								<td>String</td>
+								<td>'' (empty string)</td>
+								<td>Space-separated list of class names that will be applied to the modal window.</td>
+							</tr>
+							<tr>
+								<td>modalStyle</td>
+								<td>Object | String</td>
+								<td>'' (empty string)</td>
+								<td>An object containing CSS property-value pairs, or a CSS property list as a string that will be applied to the modal window.</td>
+							</tr>
+
+							<tr>
+								<td>contentClasses</td>
+								<td>String</td>
+								<td>'' (empty string)</td>
+								<td>Space-separated list of class names that will be applied to the modal window's inner content.</td>
+							</tr>
+
+							<tr>
+								<td>contentStyle</td>
+								<td>Object | String</td>
+								<td>'' (empty string)</td>
+								<td>An object containing CSS property-value pairs, or a CSS property list as a string that will be applied to the modal window's inner content.</td>
+							</tr>
+
+							<tr>
+								<td>closeButtonStyle</td>
+								<td>Object | String</td>
+								<td>'' (empty string)</td>
+								<td>An object containing CSS property-value pairs, or a CSS property list as a string that will be applied to the modal window's close button.</td>
+							</tr>
+
+							<tr>
+								<td>animationIn</td>
+								<td>Object | String</td>
+								<td>'scale'</td>
+								<td>A string of a pre-defined transition, or an object containing the transition details animated via GSAP. Check the <code>kmw.transition.data</code> global variable for more information.</td>
+							</tr>
+
+							<tr>
+								<td>animationOut</td>
+								<td>Object | String</td>
+								<td>null</td>
+								<td>A string of a pre-defined transition, or an object containing the transition details animated via GSAP. Check the <code>kmw.transition.data</code> global variable for more information. A <code>null</code> value will play <code>animationIn</code> in reverse.</td>
+							</tr>
+
+						</tbody>
+
+						<thead>
+							<tr>
+								<th>Event properties</th>
+								<th>Type</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>onBeforeOpen</td>
+								<td>Function</td>
+								<td>null</td>
+								<td>Triggered right before the Slider Library will open.</td>
+							</tr>
+							<tr>
+								<td>onOpen</td>
+								<td>Function</td>
+								<td>null</td>
+								<td>Triggered after the Slider Library has opened.</td>
+							</tr>
+							<tr>
+								<td>onBeforeClose</td>
+								<td>Function</td>
+								<td>null</td>
+								<td>Triggered right before the Slider Library will close.</td>
+							</tr>
+							<tr>
+								<td>onClose</td>
+								<td>Function</td>
+								<td>null</td>
+								<td>Triggered after the Slider Library has closed.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="km-notification warning cf">
+					<span class="dashicons dashicons-warning"></span>
+					There are several additional undocumented options governing the appearance and behavior. Using custom CSS to force something that we otherwise have settings for may not be the best idea. Do make sure to check the mentioned global variables for the full list of options.
+				</div>
+
+				<div class="km-notification warning cf">
+					<span class="dashicons dashicons-warning"></span>
+					This modal script is custom-made to better fit our needs than most 3rd party options. While its features mostly documented and it may be appealing to you, this is in no way an encouragement to use it outside of LayerSlider. It's still our own intellectual property, but you can use it as part of the plugin to make custom implementations related and relevant to LayerSlider.
+				</div>
+
+				<h2 data-target="slider-library-checklist">Dos and Don'ts</h2>
+				<ul>
+					<li><b>Don't</b> change the modal <code>id</code> property.</li>
+					<li><b>Don't</b> target the modal or its elements via CSS directly.</li>
+					<li><b>Do</b> apply a unique class name with <code>modalClasses</code> and use it for CSS customization. You <b>Don't</b> want to accidentally override other modals or different implementations.</li>
+				</ul>
+
+				<h2 data-target="slider-library-examples">Examples</h2>
+				<p>
+					Finally, here's a more lifelike usage example:
+				</p>
+				<pre name="code" class="brush: js;">
+LS_SliderLibrary.open({
+
+	// Triggers when the user has selected a slider.
+	onChange: function( sliderData ) {
+		alert( &#039;Selected slider ID: &#039; + sliderData.id );
+		alert( &#039;Selected slider name: &#039; + sliderData.name );
+	},
+
+	// Modal customization
+	modalSettings: {
+		title: &#039;Choose LayerSlider&#039;,
+		modalClasses: 'my-custom-class',
+		onBeforeOpen: function() {
+			alert('The modal is opening!');
+		},
+	},
+
+	// Group sub-modal customization
+	// Uses the same settings as modalSettings
+	groupModalSettings: {
+
+	}
+});
+</pre>
+
+			</section>
+
+			<!-- Working with sources -->
+			<section data-target="sources">
+
+				<h1 data-target="sources-intro">Working with sources</h1>
+				<nav>
+					<ul>
+						<li><a href="#sources-intro">Introduction</a></li>
+						<li>
+							<a href="#sources-skins">Skins</a>
+							<ul>
+								<li><a href="#sources-skins-availability">Feature availability</a></li>
+								<li><a href="#sources-skins-structure">Structure of skins</a></li>
+								<li><a href="#sources-skins-metadata">Skin metadata</a></li>
+								<li><a href="#sources-skins-methods">API methods</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#sources-sliders">Bundled sliders</a>
+							<ul>
+								<li><a href="#sources-sliders-availability">Feature availability</a></li>
+								<li><a href="#sources-sliders-structure">Structure of sliders</a></li>
+								<li><a href="#sources-sliders-metadata">Slider metadata</a></li>
+								<li><a href="#sources-sliders-methods">API methods</a></li>
+							</ul>
+						</li>
+						<li><a href="#sources-transitions">Transitions</a></li>
+						<li><a href="#sources-fonts">Fonts</a></li>
+					</ul>
+				</nav>
+
+				<article>
+					<p>The sources API lets you load customized plugin contents externally. This includes skins, transitions, sample sliders, Google fonts, and any other asset you might want to use to adjust the plugin according to the needs of your work.</p>
+				</article>
+
+				<!-- Skins -->
+				<article>
+					<h1 data-target="sources-skins">Skins</h1>
+					<h2 data-target="sources-skins-availability">Feature availability</h2>
+					<p>Externally loaded skins have full feature availability. They will show up in the slider settings for the users to choose them, and all the other features (e.g.: the LayerSlider skin editor) will work in the same way as the built-in ones.</p>
+
+					<h2 data-target="sources-skins-structure">Structure of loadable skins</h2>
+					<p>Every skin needs to have its own separate folder. The lowercase base name of the skins' folder will be used as a handle to manage the loaded skins. You need to avoid adding multiple skins with the same folder name, as the later ones will override previously added skins. This also means that you cannot use the names of the built-in skins, which are: borderlessdark, borderlessdark3d, borderlesslight, borderlesslight3d, carousel, darkskin, darkskin, defaultskin, fullwidth, fullwidthdark, glass, lightskin, minimal, noskin, v5.</p>
+
+					<p>Each skins folder needs to contain a <code>skin.css</code> file, which will be loaded by the slider when it's needed. The <code>skin.css</code> file name is used to validate the folder, and you cannot use another name or file type.</p>
+
+					<h2 data-target="sources-skins-metadata">Skin metadata</h2>
+					<p>Inside your skins' folder, you can add an additional <code>info.json</code> file that LayerSlider will detect automatically and will use to get additional information for your skin. A typical JSON would be:</p>
+					<pre name="code" class="brush: js;">{
+	"name": "Borderless Dark for 3D sliders",
+	"version": "4.6.0",
+	"requires": "4.5.5",
+	"author": "Kreatura Media",
+	"created": "2013-01-15",
+	"updated": "2013-07-29",
+	"note": ""
+}</pre>
+
+					<div class="km-notification warning cf">
+						<span class="dashicons dashicons-warning"></span>
+						Make sure to provide valid JSON data instead of a Javascript object literal.
+					</div>
+					<p>Currently not every metadata is being used by LayerSlider, but we highly recommend you to keep all of them up-to-date, as future releases might introduce changes based on these information. For more examples about the info.json file, please see our skins in the /static/skins/ directory.</p>
+
+					<h2 data-target="sources-skins-methods">API methods</h2>
+					<ul>
+						<li>
+							<i>(void)</i> <code>LS_Sources::addSkins( string $path )</code><br><br>
+							<p>Adds the skins from the directory provided. $path is the directory that holds all of your skins. When a skin.css file is found inside $path it's assumed to be a direct skin directory and LayerSlider won't attempt to find children skin folders. As an additional measure of security, please use absolute paths in all cases.</p><br>
+							<pre name="code" class="brush: php;">LS_Sources::addSkins( get_template_directory().'/ls-skins' ) // Loads all skins from the ls-skins directory
+LS_Sources::addSkins( get_template_directory().'/ls-skins/myskin' ); // Loads only "myskin" from the ls-skins directory</pre>
+						</li>
+						<li class="separator">
+							<i>(void)</i> <code>LS_Sources::removeSkin( string $handle )</code><br><br>
+							<p>Removes a previously added skin by its lowercase folder name as being $handle.</p><br>
+							<pre name="code" class="brush: php;">LS_Sources::removeSkin('myskin');</pre>
+						</li>
+						<li class="separator">
+							<i>(array)</i> <code>LS_Sources::getSkin( string $handle )</code><br><br>
+							<p>Returns skin information by its lowercase folder name as being $handle.</p><br>
+							<pre name="code" class="brush: php;">$skin = LS_Sources::getSkin('myskin');
+var_dump($skin); // Check what's inside</pre>
+						</li>
+						<li class="separator">
+							<i>(array)</i> <code>LS_Sources::getSkins( )</code><br><br>
+							<p>Returns all skins.</p><br>
+							<pre name="code" class="brush: php;">$skins = LS_Sources::getSkins();
+var_dump($skin); // Check what's inside</pre>
+						</li>
+						<li class="separator">
+							<i>(string)</i> <code>LS_Sources::pathForSkin( string $handle )</code><br><br>
+							<p>Returns an absolute path for the skin's directory by its lowercase base name as being $handle. The returned path has a trailing slash.</p><br>
+							<pre name="code" class="brush: php;">$path1 = LS_Sources::pathForSkin('myskin');
+$path2 = LS_Sources::pathForSkin('borderlessdark');
+// $path1 is /path/to/your/site/wp-content/themes/kreatura/ls-skins/myskin/
+// $path2 is /path/to/your/site/wp-content/plugins/LayerSlider/static/skins/borderlessdark/</pre>
+						</li>
+						<li class="separator">
+							<i>(string)</i> <code>LS_Sources::urlForSkin( string $handle )</code><br><br>
+							<p>Returns an absolute URL for the skin's directory by its lowercase base name as being $handle. The returned URL has a trailing slash.</p><br>
+							<pre name="code" class="brush: php;">$url1 = LS_Sources::urlForSkin('myskin');
+$url2 = LS_Sources::urlForSkin('borderlessdark');
+// $url1 is http://mysite.com/wp-content/themes/kreatura/ls-skins/myskin/
+// $url2 is http://mysite.com/wp-content/plugins/LayerSlider/static/skins/borderlessdark/</pre>
+						</li>
+					</ul>
+				</article>
+
+				<!-- Demo sliders -->
+				<article>
+					<h1 data-target="sources-sliders">Bundled sliders</h1>
+					<h2 data-target="sources-sliders-availability">Feature availability</h2>
+					<p>Externally loaded demo sliders have full feature availability. They will show up in the list of importable sliders and can be used in the same way as the built-in ones.</p>
+
+					<h2 data-target="sources-sliders-structure">Structure of importable demo sliders</h2>
+					<p>Every demo slider needs to have its own folder. The lowercase base name of the sliders' folder will be used as a handle to manage the loaded demo sliders. You need to avoid adding multiple sliders from the same folder name, as the later ones will override previously added sliders. This also means that you cannot use the names of the built-in demo sliders, which are: carousel, fullwidth, v5.</p>
+
+					<p>Each slider folder needs to contain a <code>slider.zip</code> file, which will be used to import the demo content. The <code>slider.zip</code> file name is used to validate the folder, and you cannot use another name or file type.</p>
+
+					<p>If <code>preview.png</code> is found in the demo slider folder, it will be used in the list of importable sample sliders to display a preview image of your work. Preview images should have 150x150px dimensions and use PNG format with transparency.</p>
+					<p>Demo slider folders should also have an additional <code>info.json</code> file that contains matadata for your slider. See the details in the next section.</p><br>
+					<div class="km-notification info cf">
+						<span class="dashicons dashicons-info"></span>
+						For working examples, please see our sample sliders in /demos/ within the LayerSlider plugin directory.
+					</div>
+
+
+					<h2 data-target="sources-sliders-metadata">Slider metadata</h2>
+					<p>Inside your demo sliders' folder, you can add an additional <code>info.json</code> file that LayerSlider will detect automatically and will use to get additional information for your slider. A typical JSON would be:</p>
+					<pre name="code" class="brush: js;">{
+	"name": "Full width demo slider",
+	"version": "5.3.0",
+	"requires": "5.1.0",
+	"author": "Kreatura Media",
+	"url": "preview web address",
+	"groups": "bundled,free",
+	"created": "2013-12-23",
+	"updated": "2013-12-23",
+	"note": ""
+}</pre>
+
+					<div class="km-notification warning cf">
+						<span class="dashicons dashicons-warning"></span>
+						Make sure to provide valid JSON data instead of a Javascript object literal.
+					</div>
+					<div class="km-notification warning cf">
+						<span class="dashicons dashicons-warning"></span>
+						The version number for <code>requires</code> needs to be at least 5.1.0, since this version introduced the new ZIP archive import/export solution.
+					</div>
+					<p>Currently not every metadata is being used by LayerSlider, but we highly recommend you to keep all of them up-to-date, as future releases might introduce changes based on these information. For more examples about the info.json file, please see our sliders in the /demos/ folder within the plugin's directory.</p>
+
+					<h2 data-target="sources-sliders-methods">API methods</h2>
+					<ul>
+						<li>
+							<i>(void)</i> <code>LS_Sources::addDemoSlider( string $path )</code><br><br>
+							<p>Adds the demo sliders from the directory provided. $path is the directory that holds all of sliders. When a slider.zip file is found inside $path it's assumed to be a direct demo slider directory and LayerSlider won't attempt to find children folders. As an additional measure of security, please use absolute paths in all cases.</p><br>
+							<pre name="code" class="brush: php;">LS_Sources::addDemoSlider( get_template_directory().'/ls-sliders' ) // Loads all demo sliders from the ls-sliders directory
+LS_Sources::addDemoSlider( get_template_directory().'/ls-sliders/myslider' ); // Loads only "myslider" from the ls-sliders directory</pre>
+						</li>
+						<li class="separator">
+							<i>(void)</i> <code>LS_Sources::removeDemoSlider( string $handle )</code><br><br>
+							<p>Removes a previously added demo slider by its lowercase folder name as being $handle.</p><br>
+							<pre name="code" class="brush: php;">LS_Sources::removeDemoSlider('myslider');</pre>
+						</li>
+						<li class="separator">
+							<i>(array)</i> <code>LS_Sources::removeDemoSlider( string $handle )</code><br><br>
+							<p>Returns demo slider information by its lowercase folder name as being $handle.</p><br>
+							<pre name="code" class="brush: php;">$slider = LS_Sources::getDemoSlider('myslider');
+var_dump($slider); // Check what's inside</pre>
+						</li>
+						<li class="separator">
+							<i>(array)</i> <code>LS_Sources::getDemoSliders( )</code><br><br>
+							<p>Returns all previously added demo sliders.</p><br>
+							<pre name="code" class="brush: php;">$sliders = LS_Sources::getDemoSliders();
+var_dump($sliders); // Check what's inside</pre>
+						</li>
+						<li class="separator">
+							<i>(string)</i> <code>LS_Sources::pathForDemoSlider( string $handle )</code><br><br>
+							<p>Returns an absolute path for the demo slider's directory by its lowercase base name as being $handle. The returned path has a trailing slash.</p><br>
+							<pre name="code" class="brush: php;">$path1 = LS_Sources::pathForDemoSlider('myslider');
+$path2 = LS_Sources::pathForDemoSlider('fullwidth');
+// $path1 is /path/to/your/site/wp-content/themes/kreatura/ls-sliders/myslider/
+// $path2 is /path/to/your/site/wp-content/plugins/LayerSlider/static/demos/fullwidth/</pre>
+						</li>
+					</ul>
+				</article>
+
+				<!-- Transitions -->
+				<article>
+					<h1 data-target="sources-transitions">Managing sample transitions</h1>
+					<div class="km-notification warning cf">
+						<span class="dashicons dashicons-warning"></span>
+						This API is not yet available.
+					</div>
+				</article>
+
+				<!-- Google Fonts -->
+				<article>
+					<h1 data-target="sources-fonts">Managing Google Fonts</h1>
+					<div class="km-notification warning cf">
+						<span class="dashicons dashicons-warning"></span>
+						This API is not yet available. Since v6.0.0, sliders will import their used Google Fonts.
+					</div>
+				</article>
+			</section>
+
+			<!-- Action hooks -->
+			<section data-target="hooks">
+
+				<nav>
+					<ul>
+						<li>
+							<a href="#action-hooks">Actions hooks</a>
+							<ul>
+								<li><a href="#action-hooks-reference">Actions reference</a></li>
+								<li><a href="#action-hooks-examples">Examples</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#filter-hooks">Filter hooks</a>
+							<ul>
+								<li><a href="#filter-hooks-reference">Filters reference</a></li>
+								<li><a href="#filter-hooks-examples">Examples</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+
+				<h1 data-target="action-hooks">Action hooks</h1>
+				<h2 data-target="action-hooks-reference">Public action hooks reference</h2>
+				<p>Read the <a href="http://codex.wordpress.org/Function_Reference/add_action" target="_blank">WP Codex entry</a> for more information about using actions.</p>
+
+				<div class="table">
+					<table>
+						<thead>
+							<tr>
+								<th>Hook name</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>layerslider_installed</td>
+								<td>Runs only on the first installation, even if the plugin was removed previously.</td>
+							</tr>
+							<tr>
+								<td>layerslider_activated</td>
+								<td>Runs when the plugin has been activated.</td>
+							</tr>
+							<tr>
+								<td>layerslider_updated</td>
+								<td>Runs when the plugin was updated and a new version is recognized. This method also works when a user overrides the plugin folder on FTP.</td>
+							</tr>
+							<tr>
+								<td>layerslider_deactivated</td>
+								<td>Runs when the plugin has been deactivated.</td>
+							</tr>
+							<tr>
+								<td>layerslider_uninstalled</td>
+								<td>Runs when the plugin has been uninstalled.</td>
+							</tr>
+							<tr>
+								<td>layerslider_ready</td>
+								<td>Runs when the plugin has loaded and it is ready to process custom code. This hook fires on every page refresh, and it might slow down pages.</td>
+							</tr>
+							<tr>
+								<td>layerslider_before_slider_content</td>
+								<td>Runs before printing slider content. This action can be used to print custom HTML before the slider containment element.</td>
+							</tr>
+							<tr>
+								<td>layerslider_after_slider_content</td>
+								<td>Runs after printing slider content. This action can be used to print custom HTML after the slider containment element.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+
+
+				<div class="km-notification info cf">
+					<span class="dashicons dashicons-info"></span>
+					Some additional action hooks are already used in the plugin internals, but these are not stable yet and can change at any time. They will be added to the list above when they are ready.
+				</div>
+
+				<h2 data-target="action-hooks-examples">Actions hook examples</h2>
+
+				<p>The following example uses the <code>layerslider_installed</code>  action to add demo content when the plugin was installed for the first time.</p>
+				<pre name="code" class="brush: php;">&lt;?php
+
+add_action('layerslider_installed', 'my_layerslider_demos');
+function my_layerslider_demos() {
+
+	// Method 1: Using importUtil
+	include LS_ROOT_PATH.&#039;/classes/class.ls.importutil.php&#039;;
+	$import = new LS_ImportUtil('&lt;path_to_your_export_file&gt;');
+
+	// Method 2: Using LS_Sliders::add()
+	LS_Sliders::add($title, $dataArray);
+}
+
+?&gt;</pre>
+
+				<p>This example uses the <code>layerslider_before_slider_content</code>  and <code>layerslider_after_slider_content</code> actions to print out a custom slider wrapper.</p>
+				<pre name="code" class="brush: php;">&lt;?php
+
+add_action('layerslider_before_slider_content', 'my_ls_before_content');
+add_action('layerslider_after_slider_content', 'my_ls_after_content');
+
+function my_ls_before_content() {
+	echo &#039;&lt;div class=&quot;my-layerslider-wrapper&quot;&gt;&#039;;
+}
+
+function my_ls_after_content() {
+	echo &#039;&lt;/div&gt;&#039;;
+}
+
+?&gt;</pre>
+
+
+				<h1 data-target="filter-hooks">Filter hooks</h1>
+				<h2 data-target="filter-hooks-reference">Public filter reference</h2>
+				<p>Read the <a href="http://codex.wordpress.org/Function_Reference/add_filter" target="_blank">WP Codex entry</a> for more information about using filters.</p>
+				<div class="km-notification warning cf">
+					<span class="dashicons dashicons-warning"></span>
+					The structure of the defaults object is not yet final. Consider potential risks before using it.
+				</div>
+				<div class="km-notification info cf">
+					<span class="dashicons dashicons-info"></span>
+					Although the filter API is stable, the slider data to be processed may change over time.
+				</div>
+
+				<div class="table">
+					<table>
+						<thead>
+							<tr>
+								<th>Hooks</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>layerslider_root_url</td>
+								<td>
+									URL to LayerSlider's root directory. Using to load static assets (CSS, JS, images, etc) located within the plugin folder. If you're loading LayerSlider from a non-standard location, you may need to override the default URL to point to the right path.
+									<br><br>
+									Accepted arguments:
+									<ul class="nomargin">
+										<li>string $url: The default URL.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>layerslider_pre_parse_defaults</td>
+								<td>
+									Runs before parsing defaults. It contains the raw slider data, which includes legacy property names, and it should not be used.
+									<br><br>
+									Accepted arguments:
+									<ul class="nomargin">
+										<li>array $slider: The slider data as an associative array.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>layerslider_override_defaults</td>
+								<td>
+									Provides an easy way to change the default slider settings. It applies on the admin interface, but it will take effect in generating the slider markup as well. This filter won't override previously created sliders.
+									<br><br>
+									Accepted arguments:
+									<ul class="nomargin">
+										<li>array $defaults: The defaults array containing the details for every available option.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>layerslider_post_parse_defaults</td>
+								<td>
+									Runs after the slider data was parsed based on the defaults, and the plugin is ready to override settings without later influences. Use this filter wisely, as it can break previously created sliders, since the users won't be able to change or prevent these overrides.
+									<br><br>
+									Accepted arguments:
+									<ul class="nomargin">
+										<li>array $slider: The slider data as an associative array after the defaults has been parsed.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>layerslider_slider_init</td>
+								<td>
+									HTML that contains the slider initialization JavaScript code. In some cases this is printed at a different location that the rest of the slider HTML markup, thus there is another filter for that.
+									<br><br>
+									Accepted arguments:
+									<ul class="nomargin">
+										<li>string $markup: The HTML markup that contains the initialization script. </li>
+										<li>array $slider: The slider database record as an associative array.</li>
+										<li>string $id: The ID attribute of the slider element. Guaranteed to be unique. Use this instead of trying to guess or hardcode a fix value, as the ID can change depending on certain conditions.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>layerslider_slider_markup</td>
+								<td>
+									This filter can be useful to work with the generated HTML string instead of the raw slider data. Make sure to also check the <code>layerslider_slider_init</code> filter.
+									<br><br>
+									Accepted arguments:
+									<ul class="nomargin">
+										<li>string $markup: The HTML code that contains the slider markup.</li>
+										<li>array $slider: The slider database record as an associative array.</li>
+										<li>string $id: The ID attribute of the slider element. Guaranteed to be unique. Use this instead of trying to guess or hardcode a fix value, as the ID can change depending on certain conditions.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>layerslider_skin_url</td>
+								<td>
+									LayerSlider generates the proper skin URLs automatically. You should NOT use this filter without a very good reason. Developers can add their own skins and other assets externally via the  <a href="#sources-skins">LS_Sources</a> class, which generates the appropriate URL out of the box..
+									<br><br>
+									Accepted arguments:
+									<ul class="nomargin">
+										<li>string $url: The proposed skin URL that should be used.</li>
+										<li>array $handle: The handle (folder name) of the selected skin.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>layerslider_attr_list</td>
+								<td>
+									Array of style and transition properties to be applied on layers. Called multiple times for each layer and attribute type. You MUST return a string that will be the value of <code>style</code> and <code>data-ls</code> attributes. Use <code>implode()</code>.
+									<br><br>
+									Accepted arguments:
+									<ul class="nomargin">
+										<li>array $properties: Array of style and transition properties.</li>
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td>ls_meta_generator</td>
+								<td>
+									This filter can be used to change or remove the <i>&lt;meta name=&quot;generator&quot; content=&quot;Powered by LayerSlider...</i> HTML tag in the page source code. Return an empty string if you want to remove it completely.
+									<br><br>
+									Please note, the meta tag is there for stats and other uses. This is not an advertisement, search engines ignore these kinds of backlinking.
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="km-notification info cf">
+					<span class="dashicons dashicons-info"></span>
+					Some additional filters are already used in the plugin internals, but these are not stable yet and can change at any time. They will be added to the list above when they are ready.
+				</div>
+
+				<h2 data-target="filter-hooks-examples">Filter hook examples</h2>
+				<p>The following example uses the <code>layerslider_override_defaults</code> filter to change some default settings related to appearance.</p>
+				<pre name="code" class="brush: php;">&lt;?php
+
+add_filter('layerslider_override_defaults', 'my_override');
+function my_override($defaults) {
+
+	// Uncomment these to see all settings
+	// echo '&lt;pre&gt;';
+	// var_dump($defaults);
+	// echo '&lt;/pre&gt;';
+
+	// Override some defaults
+	$defaults['slider']['type']['value'] = 'fullwidth';
+	$defaults['slider']['skin']['value'] = 'myskin';
+
+	return $defaults;
+}
+
+?&gt;</pre>
+
+				<p>Another example of using the <code>layerslider_override_defaults</code> filter to apply the same transition on slides by default.</p>
+				<pre name="code" class="brush: php;">&lt;?php
+
+add_filter('layerslider_override_defaults', 'my_override');
+function my_override($defaults) {
+
+	$defaults['slides']['2dTransitions']['value'] = '5';
+
+	return $defaults;
+}
+
+?&gt;</pre>
+
+
+<p>Example of completely removing the <i>generator</i> HTML meta tag from the page source.</p>
+<pre name="code" class="brush: php;">&lt;?php
+
+add_filter('ls_meta_generator', function( $str ) {
+    return '';
+});
+
+?&gt;</pre>
+			</section>
+
+			<!-- Release log -->
+			<section data-target="release-log">
+
+				<nav>
+					<ul>
+						<li><a href="#changes-latest">Latest changes</a></li>
+						<li><a href="#changes-previous">Previous versions</a></li>
+					</ul>
+				</nav>
+
+				<h1 data-target="changes-latest">Release log</h1>
+				<div class="km-notification info cf">
+					<span class="dashicons dashicons-info"></span>
+					Make sure to read the documentation for End-Users as well. This section contains changes, which could affect developers and their custom solutions built on top of the plugin.
+				</div>
+
+				<h2>Changes in LayerSlider 6.9.0</h2>
+				<ul class="nomargin">
+					<li>This release introduces Slider Groups, which are essentially special records in the same wp_layerslider database table. The LS_Sliders class and the legacy lsSliders() function adapts to these changes automatically. However, if you're making custom queries, make sure to filter out records where <code>flag_group</code> equals to 1. Check out the <a href="#sliders">Working with sliders</a> section to learn more.</li>
+					<li>There's a new and very easy way to implement slider pickers. The <a href="#slider-library-api">LS_SliderLibrary</a> JS API allows you to enjoy all the new features with minimal code, so you can focus on what really matters to you.</li>
+				</ul>
+
+
+				<h2>Changes in LayerSlider 6.8.0</h2>
+				<ul class="nomargin">
+						<li>You can now override slider settings via the shortcode or the PHP function. This can be useful if you want to make small changes in certain situations without duplicating the slider. For example, you might want to change the slider skin on some pages to fit better to a different page style. Check the <a href="documentation.html#publish-overrides">Overriding settings</a> section for more information.</li>
+					</ul>
+
+
+				<h2>Changes in LayerSlider 6.7.5</h2>
+				<ul class="nomargin">
+					<li>The theme bundling guide now includes a "Maximizing compatibility" section. The newly introduced changes allows your theme to override and enforce certain LayerSlider settings, such as loading scripts at the footer, etc.</li>
+				</ul>
+
+				<h2>Changes in LayerSlider 6.6.7</h2>
+				<ul class="nomargin">
+					<li>Updated licensing terms and theme integration guide.</li>
+				</ul>
+
+				<h2>Changes in LayerSlider 6.6.3</h2>
+				<ul class="nomargin">
+					<li>Added filter hook: <a href="#filter-hooks-reference">layerslider_skin_url</a></li>
+					<li>Added filter hook: <a href="#filter-hooks-reference">layerslider_attr_list</a></li>
+					<li>Updated some examples.</li>
+				</ul>
+
+				<h2>Changes in LayerSlider 6.6.0</h2>
+				<ul class="nomargin">
+					<li>Fixes for overriding default settings like skins that not always worked as expected.</li>
+					<li>Fixes in the LS_Sources class that affected externally loaded skins and other materials.</li>
+				</ul>
+
+				<h2>Changes in LayerSlider 6.5.8</h2>
+				<ul class="nomargin">
+					<li>Documented the <a href="#filter-hooks-reference">ls_meta_generator</a> filter hook.</li>
+				</ul>
+
+				<h2>Changes in LayerSlider 6.4.0</h2>
+				<ul class="nomargin">
+					<li>Added <code>layerslider_slider_init</code> filter hook to provide an option to change the JavaScript slider initialization code.</li>
+					<li>Added additional parameters to <code>layerslider_slider_markup</code> filter hook to provide context with more information about the affected slider.</li>
+				</ul>
+
+				<h2>Changes in LayerSlider 6.2.0</h2>
+				<ul>
+					<li>Added <code>layerslider_root_url</code> filter to override paths in case the plugin is loaded externally from a custom location. See <a href="#filter-hooks-reference">Filter Reference</a> to learn more.</li>
+				</ul>
+
+				<h2>Changes in LayerSlider 6.0.0</h2>
+				<ul class="nomargin">
+					<li>Updated the <a href="#bundling">Bundling in themes</a> section</li>
+					<li>The layerslider database table will now be created on the fly to provide better support for multisite installations. Make sure to use one of the actions hooks to execute your install/update code, as the DB table may not be accessible at any time.</li>
+					<li>Bundled demo sliders can now be tagged to work with our new Import Templates modal window. Read the updates <a href="#bundling">Working with sliders</a> section.</li>
+					<li>Make sure to read the End-User documentation as well, since version 6.0.0 has countless new features, improvements and other changes.</li>
+				</ul>
+
+				<h2 data-target="changes-previous">Changes in previous versions</h2>
+				<h3>Version 5.6.2</h3>
+				<ul class="nomargin">
+					<li>The <code>layerslider_slider_markup</code> filter hook no longer contains the JS init code</li>
+				</ul>
+
+				<h3>Version 5.6.0</h3>
+				<ul class="nomargin">
+					<li>Fixed the <code>layerslider_slider_markup</code> filter hook</li>
+				</ul>
+
+
+				<h3>Version 5.5.0</h3>
+				<ul class="nomargin">
+					<li>Added a new section for listing constants and global variables used by LayerSlider.</li>
+					<li>Improved some example codes</li>
+				</ul>
+
+				<h3>Version 5.4.0</h3>
+				<ul class="nomargin">
+					<li>Added filter to override the slider markup before output</li>
+				</ul>
+
+				<h3>Version 5.3.2</h3>
+				<ul class="nomargin">
+					<li>LS_Sliders::add() now accepts a 3rd parameter to set the slider slug</li>
+					<li>Slider slugs are now added properly after importing</li>
+				</ul>
+
+				<h3>Version 5.3.1</h3>
+				<ul class="nomargin">
+					<li>Fixed LS_Sources::urlForSkin() returning invalid URLs on certain installations.</li>
+					<li>Dropped multibyte functions in LS_Sources methods, using strtolower() to have lowercase handles instead. The result may vary depending on the server locale.</li>
+				</ul>
+
+				<h3>Version 5.3.0</h3>
+				<ul class="nomargin">
+					<li>Added LS_Sources class to load skins and demo sliders externally.</li>
+					<li>The LayerSlider shortcode is now registered globally, thus page builder solutions can pick it up automatically.</li>
+					<li>Added new API method 'redraw' to update the slider's layout and contents.</li>
+				</ul>
+
+				<h3>Version 5.2.0</h3>
+				<ul class="nomargin">
+					<li>From now on automatic updates can be enabled on two websites at the same time with a purchase code</li>
+					<li>Disabling the auto-update in themes now only warns the users about the feature requirements instead of hiding the box</li>
+				</ul>
+
+				<h3>Version 5.1.0</h3>
+				<ul class="nomargin">
+					<li>Read the release log in the regular docs</li>
+					<li>Updated documentation with fixes and extended content</li>
+					<li>Changed import/export method, affects samples</li>
+					<li>LS_Sliders::find() now accepts slider slug</li>
+					<li>LS_Sliders::find() now accepts slider array of IDs</li>
+					<li>Fixed $title param of LS_Sliders::add()</li>
+					<li>Updated layerslider database table</li>
+					<li>Fixed detecting version changes and running upgrade scripts</li>
+				</ul>
+
+				<h3>Version 5.0.x</h3>
+				<ul>
+					<li>Read through all the new docs (including the one for End-Users). Version 5.0.0 has major changes under the hood.</li>
+					<li>Old  slide &amp; layer transitions are deprecated. They will still work on front-end pages, but might be dropped completely in future versions. You should take this under consideration when changing the defaults.</li>
+					<li>Some of the new APIs are still experimental and will likely change. Use them for your own risk.</li>
+				</ul>
+
+				<h3>Major changes till 6.0.0</h3>
+				<ul>
+					<li>Using the Options API for storing sliders is deprecated since v3.6.0, and backwards compatibility will be dropped in the near future.</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+	<script src="assets/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+	<script src="assets/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+	<script src="assets/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
+	<script src="assets/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
+	<script src="assets/js/doc.js?rev=6"></script>
+</body>
+</html>
